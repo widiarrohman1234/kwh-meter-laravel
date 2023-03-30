@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Data;
 use App\Http\Resources\DataResource;
+use App\Helpers\ResponseFormatter;
 
 class DataController extends Controller
 {
@@ -12,6 +13,11 @@ class DataController extends Controller
     public function index()
     {
         return DataResource::collection(Data::all());
+        // $data = Data::all();
+        // return ResponseFormatter::success(
+        //     $data,
+        //     'Data Produk berhasil diiambil'
+        // );
     }
 
     public function create()
@@ -22,17 +28,23 @@ class DataController extends Controller
     public function store(Request $request)
     {
         //create post
+        date_default_timezone_set('Asia/Pontianak');
+
         $post = Data::create([
-            'tanggal' => $request->tanggal,
-            'waktu' => $request->waktu,
             'voltage' => $request->voltage,
             'current' => $request->current,
             'power' => $request->power,
             'energy' => $request->energy,
             'freq' => $request->freq,
             'pf' => $request->pf,
+            'mac_address' => $request->mac_address,
         ]);
-        return new DataResource($post );
+
+        return response()->json([
+            'status' => 'TRUE',
+            'relay' => 'OFF',
+            'batas_kwh' => '50'
+        ]);
     }
 
     /**
@@ -41,11 +53,12 @@ class DataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        return view('post', [
+            'post' => Data::where('slug', '=', $slug)->first()
+        ]);
     }
-
     /**
      * Show the form for editing the specified resource.
      *

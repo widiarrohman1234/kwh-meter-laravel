@@ -133,4 +133,39 @@
     <p class="mt-5">Terakhir Update: <strong id='waktu'>2021-07-01 00:00:00</strong></p>
 
 </div>
+<script>
+    if (typeof(EventSource) !== "undefined") {
+        var source = new EventSource("http://localhost/kwh-meter-laravel/api/data");
+        source.addEventListener('data', function(e) {
+            var data = JSON.parse(e.data);
+            console.log('data')
+
+            var tanggal = data.tanggal;
+            var waktu = data.waktu;
+            var voltage = data.voltage;
+            var current = data.current;
+            var power = data.power;
+            var energy = data.energy;
+            var freq = data.freq;
+            var pf = data.pf;
+
+
+
+            document.getElementById("voltage").innerText = voltage;
+            document.getElementById("current").innerText = current;
+            document.getElementById("power").innerText = power;
+            document.getElementById("energy").innerText = energy;
+            document.getElementById("freq").innerText = freq;
+            document.getElementById("pf").innerText = pf;
+            document.getElementById("waktu").innerText = tanggal + " " + waktu;
+            document.getElementById("harga").innerText = harga.toFixed(2);
+            document.getElementById("harga_wbp").innerText = harga_wbp.toFixed(2);
+            document.getElementById("harga_lwbp").innerText = harga_lwbp.toFixed(2);
+            document.getElementById("sisa_kwh").innerText = sisa_kwh.toFixed(2);
+
+        }, false);
+    } else {
+        document.getElementById("result").innerHTML = "Not Support";
+    }
+</script>
 @endsection
