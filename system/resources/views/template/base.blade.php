@@ -54,8 +54,8 @@
                 </div>
             </div>
             <!-- #User Info -->
-            <!-- include('template.navbar.navbar_admin') -->
-            @include('template.navbar.navbar_user')
+            @include('template.section.navbar')
+
 
             @include('template.section.right_sidebar')
             @include('template.section.footer')

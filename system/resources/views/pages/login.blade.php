@@ -34,14 +34,15 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_in" method="get" action="{{url('user/home')}}">
+                <form id="sign_in" method="get" action="{{url('admin/home')}}">
+                    @csrf
                     <div class="msg">Sign in to start your session</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="text" class="form-control" name="email" placeholder="example@email.com" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">

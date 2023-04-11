@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\DataResource;
 use App\Models\Data;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\UserController;
 
 Route::get('index', function () {
     return view('index');
@@ -28,9 +29,15 @@ Route::get('admin/home', function () {
     return view('pages/admin/home_admin');
 });
 
-Route::get('admin/user', function () {
-    return view('pages/admin/user');
-});
+Route::get('admin/user/', [UserController::class, 'index']);
+Route::get('admin/user/create', [UserController::class, 'create']);
+Route::post('admin/user', [UserController::class, 'store']);
+Route::get('admin/user/edit/{id}', [UserController::class, 'edit']);
+Route::get('admin/user/edit/{id}', [UserController::class, 'edit']);
+Route::put('admin/user/edit/{id}', [UserController::class, 'update']);
+Route::delete('admin/user/destroy/{id}', [UserController::class, 'destroy']);
+
+
 
 //front end user
 Route::get('user/home', function () {
