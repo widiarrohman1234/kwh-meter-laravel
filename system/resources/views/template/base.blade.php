@@ -19,12 +19,11 @@
                 <a href="javascript:void(0);" class="bars"></a>
                 <a class="navbar-brand" href="../../index.html">Monitoring kWh Meter</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
+            <!-- <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- #END# Tasks -->
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </nav>
     <!-- #Top Bar -->
@@ -44,11 +43,7 @@
                         <ul class="dropdown-menu pull-right">
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="{{url('/')}}"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="{{url('logout')}}"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +52,7 @@
             @include('template.section.navbar')
 
 
-            @include('template.section.right_sidebar')
+            <!-- include('template.section.right_sidebar') -->
             @include('template.section.footer')
 
         </aside>

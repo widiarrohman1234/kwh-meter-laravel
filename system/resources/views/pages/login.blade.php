@@ -34,7 +34,12 @@
         </div>
         <div class="card">
             <div class="body">
-                <form id="sign_in" method="get" action="{{url('admin/home')}}">
+                @if(session('error'))
+                <div class="alert alert-danger">
+                    <strong>Oh snap!</strong> {{session('error')}}.
+                </div>
+                @endif
+                <form id="sign_in" method="post" action="{{url('login')}}">
                     @csrf
                     <div class="msg">Sign in to start your session</div>
                     <div class="input-group">
@@ -59,11 +64,9 @@
                             <label for="rememberme">Remember Me</label>
                         </div>
                         <div class="col-xs-4">
-                            <a href="{{url('home')}}">
-                                <button class="btn btn-block bg-pink waves-effect" type="submit">
-                                    SIGN IN
-                                </button>
-                            </a>
+                            <button class="btn btn-block bg-pink waves-effect" type="submit">
+                                SIGN IN
+                            </button>
                         </div>
                     </div>
                     <div class="row m-t-15 m-b--20">
