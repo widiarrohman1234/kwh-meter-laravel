@@ -56,3 +56,4 @@
 
 <!-- Custom Js -->
 <script src="{{asset('public/js/pages/tables/jquery-datatable.js')}}"></script>
+@stack('scriptsChart')

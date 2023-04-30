@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Data;
 use App\Http\Resources\DataResource;
-use App\Helpers\ResponseFormatter;
+use App\Models\Data;
 
 class DataController extends Controller
 {
