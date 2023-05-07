@@ -5,7 +5,7 @@
         <div class="block-header">
             <h2>Home</h2>
             <br>
-            <h4>Jum'at, 07 Maret 2023 15:37:20</h4>
+            <h4 id="tanggal"></h4>
         </div>
         <!-- CPU Usage -->
         <div class="row clearfix">
@@ -45,5 +45,18 @@
         <!-- #END# CPU Usage -->
     </div>
 </section>
+<script>
+    // buat array hari dan bulan dalam bahasa Indonesia
+    var namaHari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jum\'at', 'Sabtu'];
+    var namaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
+    // buat objek Date untuk mendapatkan waktu saat ini
+    var waktu = new Date();
+
+    // buat string dengan format tanggal yang diinginkan
+    var tanggal = namaHari[waktu.getDay()] + ', ' + waktu.getDate() + ' ' + namaBulan[waktu.getMonth()] + ' ' + waktu.getFullYear() + ' ' + waktu.getHours() + ':' + waktu.getMinutes() + ':' + waktu.getSeconds();
+
+    // tampilkan tanggal di dalam elemen HTML dengan id "tanggal"
+    document.getElementById("tanggal").innerHTML = tanggal;
+</script>
 @endsection
