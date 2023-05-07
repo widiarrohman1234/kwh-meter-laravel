@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            BASIC EXAMPLE
+                           Table User
                         </h2>
                         <ul class="header-dropdown m-r--5">
                             <!-- <li class="dropdown">
